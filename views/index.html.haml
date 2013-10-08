@@ -1,8 +1,13 @@
-!!!
 %html
   %head
     %title rps
   %body
-    %h1
-      \\#{anwser}
-      \\#{@choose}
+    %h3= anwser
+    %ol
+      %h2
+        %a{:href => '?choice=rock'} Rock
+        %br
+        %a{:href => '?choice=paper'} Paper
+        %br
+        %a{:href => '?choice=scissors'} Scissors
+    
