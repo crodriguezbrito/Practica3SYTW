@@ -33,11 +33,10 @@
             "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
           end
   
-        res = Rack::Response.new
 		engine = Haml::Engine.new File.open("views/index.html.haml").read
 		res = Rack::Response.new 
 		res.write engine.render({}, 
-			:answer => answer, 
+			:anwser => anwser, 
 			:choose => @choose,
 			:throws => @throws)
 		res.finish
