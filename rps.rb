@@ -34,15 +34,13 @@
           end
   
         res = Rack::Response.new
-        res.write <<-"EOS"
-		%html
-		  %head
-			%title rps		  
-		  %body
-			%h1 \\#{anwser}
-			%h1	\\#{@choose}
-        EOS
-        res.finish
+		engine = Haml::Engine.new File.open("views/index.html.haml").read
+		res = Rack::Response.new 
+		res.write engine.render({}, 
+			:answer => answer, 
+			:choose => @choose,
+			:throws => @throws)
+		res.finish
       end # call
     end   # App
   end     # RockPaperScissors
